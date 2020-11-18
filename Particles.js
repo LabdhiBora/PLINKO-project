@@ -8,12 +8,10 @@ class Particles {
      this.r=r;
 
       this.body=Bodies.circle (x,y,this.r,options);
-      this.color=color("green"),("red"),("yellow");
+      // this.color=color("green"),("red"),("yellow");
       World.add(world,this.body);
 
-      if(frameCount%60===0){
-        Particles.push(new Particles (random(width/2-10,width/2+10,),10,10));
-      }
+      
 }
 display(){
 
@@ -21,15 +19,17 @@ display(){
     var angle=this.body.angle;
 
     push ()
-    translate(pos.x,pos.y);
-    var particles=[j];
-    for (var j=0;j<Particles.length;j=j+1){
-        particles[j].display();
-      }
-    rotate(angle);
-    fill (this.color);
+    
+    // var particles=[j];
+    // for (var j=0;j<Particles.length;j=j+1){
+    //     particles[j].display();
+    //   }
+    var red=floor(random(0,255))
+    var blue=floor(random(0,255))
+    var green=floor(random(0,255))
+    fill (red,blue,green);
     ellipseMode(RADIUS);
-    ellipse(0,0,this.r,this.r);
+    ellipse(this.body.position.x,this.body.position.y,this.r,this.r);
     pop ();
 
 }
